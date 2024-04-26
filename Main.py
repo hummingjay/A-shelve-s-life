@@ -25,7 +25,7 @@ class Shelf_life(UserControl):
             PopupMenuItem(icon=icons.SETTINGS_OUTLINED)
         ]
         self.appbar = AppBar(
-            leading=Icon(icons.HOME)
+            leading=Icon(icons.HOME),
             leading_width=100,
             title=Text("A Shelve's Life"),
             center_title=False,
