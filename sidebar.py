@@ -35,16 +35,18 @@ class Sidebar(UserControl):
                 ),
                 NavigationRailDestination(
                     icon=icons.STACKED_BAR_CHART_OUTLINED,
-                    selected_icon=icons.STACKED_BAR_CHART,
-                    Label="Catalog"
+                    selected_icon_content=Icon(icons.STACKED_BAR_CHART),
+                    label="Catalog"
                 ),
                 NavigationRailDestination(
                     icon=icons.LIBRARY_BOOKS_OUTLINED,
-                    selected_icon=icons.LIBRARY_BOOKS_ROUNDED,
-                    Label="Circulation"
+                    selected_icon_content=Icon(icons.LIBRARY_BOOKS_ROUNDED),
+                    label_content=Text("Circulation"),
                 ),
             ],
-            on_change=lambda e: print("Selected destination:", e.control.selected_index)
+            on_change=lambda e: print("Selected destination:", e.control.selected_index),
+            expand=True,
+            extended=True
         )
     
     def build(self):
@@ -52,7 +54,7 @@ class Sidebar(UserControl):
             content=Column([
                 Row([
                     Text("Menu")
-                ]),
+                ], alignment=alignment.center_right),
                 # divider
                 Container(
                     bgcolor=colors.BLACK26,

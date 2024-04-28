@@ -14,6 +14,7 @@ from flet import (
     PopupMenuButton,
     PopupMenuItem,
 )
+from app_layout import AppLayout
 
 class Shelf_life(UserControl):
     def __init__(self, page: Page):
@@ -22,12 +23,12 @@ class Shelf_life(UserControl):
         self.appbar_items = [
             PopupMenuItem(icon=icons.PERSON_OUTLINED, text="Login"),
             PopupMenuItem(), # a divider
-            PopupMenuItem(icon=icons.SETTINGS_OUTLINED)
+            PopupMenuItem(icon=icons.SETTINGS_OUTLINED, text="Settings")
         ]
         self.appbar = AppBar(
             leading=Icon(icons.HOME),
             leading_width=100,
-            title=Text("A Shelve's Life"),
+            title=Text("A Shelf's Life"),
             center_title=False,
             toolbar_height=75,
             bgcolor=colors.LIGHT_BLUE_ACCENT_700,
@@ -42,13 +43,23 @@ class Shelf_life(UserControl):
         )
         self.page.appbar = self.appbar
         self.page.update()
+    
+    def build(self):
+        self.layout = AppLayout(
+            self,
+            self.page,
+            tight=True,
+            expand=True,
+            # Vertical_alignment="start",
+        )
+        return self.layout
 
 
 
 def main(page: Page):
     page.title = "A Shelve's Life"
     page.padding = 0
-    page.bgcolor = colors.BLUE_GREY_200
+    # page.bgcolor = colors.BLUE_GREY_200
     app = Shelf_life(page)
     page.add(app)
     page.update()

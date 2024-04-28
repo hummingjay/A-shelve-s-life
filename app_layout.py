@@ -40,10 +40,12 @@ class AppLayout(Row):
                 Text("Active View")
             ],
             alignment="center",
-            horizontal_alignment="center"
+            horizontal_alignment="center",
+            expand=True
         )
         self.controls = [
             self.sidebar,
+            VerticalDivider(width=1),
             self.active_view
         ]
     

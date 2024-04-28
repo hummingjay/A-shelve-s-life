@@ -12,7 +12,9 @@ def main(page: ft.Page):
         group_alignment=-0.9,
         destinations=[
             ft.NavigationRailDestination(
-                icon=ft.icons.FAVORITE_BORDER, selected_icon=ft.icons.FAVORITE, label="First"
+                icon=ft.icons.FAVORITE_BORDER,
+                selected_icon=ft.icons.FAVORITE,
+                label="First"
             ),
             ft.NavigationRailDestination(
                 icon_content=ft.Icon(ft.icons.BOOKMARK_BORDER),
