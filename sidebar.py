@@ -10,11 +10,13 @@ from flet import(
     Container,
     Row,
     Text,
+    FontWeight,
     colors,
     border_radius,
     alignment,
     padding,
     margin,
+    MainAxisAlignment
 )
 
 class Sidebar(UserControl):
@@ -56,20 +58,20 @@ class Sidebar(UserControl):
         self.view = Container(
             content=Column([
                 Row([
-                    Text("Menu")
-                ], alignment=alignment.center_right),
+                    Text("Menu", size=21, weight=FontWeight.BOLD)
+                ], alignment=MainAxisAlignment.CENTER),
                 # divider
                 Container(
                     bgcolor=colors.BLACK26,
                     border_radius=border_radius.all(30),
                     height=1,
                     alignment=alignment.center_right,
-                    width=250
+                    width=200
                 ),
                 self.nav_items,
             ], tight=True),
             padding=padding.all(14),
             margin=margin.all(0),
-            width=250,
+            width=200
         )
         return self.view
