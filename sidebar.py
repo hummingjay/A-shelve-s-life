@@ -48,7 +48,8 @@ class Sidebar(UserControl):
             ],
             on_change=lambda e: print("Selected destination:", e.control.selected_index),
             # expand=True,
-            extended=True
+            extended=True,
+            height = 700
         )
     
     def build(self):
@@ -63,11 +64,11 @@ class Sidebar(UserControl):
                     border_radius=border_radius.all(30),
                     height=1,
                     alignment=alignment.center_right,
-                    width=220
+                    width=250
                 ),
                 self.nav_items,
             ], tight=True),
-            padding=padding.all(15),
+            padding=padding.all(14),
             margin=margin.all(0),
             width=250,
         )

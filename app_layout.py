@@ -26,14 +26,13 @@ class AppLayout(Row):
         super().__init__(*args, **kwargs)
         self.app = app
         self.page = page
-        '''
         self.toggle_nav_rail_button = IconButton(
             icon=icons.MENU_OUTLINED,
+            selected_icon=icons.KEYBOARD_DOUBLE_ARROW_LEFT_ROUNDED,
             icon_color=colors.BLUE_GREY_400,
             selected=False,
             on_click=self.toggle_nav_rail
         )
-        '''
         self.sidebar = Sidebar(self, page)
         self._active_view: Control = Column(
             controls=[
@@ -41,11 +40,11 @@ class AppLayout(Row):
             ],
             alignment="center",
             horizontal_alignment="center",
-            expand=True
+            # expand=True
         )
         self.controls = [
             self.sidebar,
-            VerticalDivider(width=1),
+            # VerticalDivider(width=1),
             self.active_view
         ]
     
@@ -57,9 +56,8 @@ class AppLayout(Row):
     def active_view(self, view):
         self._active_view = view
         self.update()
-    '''
+
     def toggle_nav_rail(self, e):
         self.sidebar.visible = not self.sidebar.visible
         self.toggle_nav_rail_button.selected = not self.toggle_nav_rail_button.selected
         self.page.update()
-    '''
