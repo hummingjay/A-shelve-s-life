@@ -13,6 +13,8 @@ from flet import(
     colors,
     border_radius,
     alignment,
+    padding,
+    margin,
 )
 
 class Sidebar(UserControl):
@@ -45,7 +47,7 @@ class Sidebar(UserControl):
                 ),
             ],
             on_change=lambda e: print("Selected destination:", e.control.selected_index),
-            expand=True,
+            # expand=True,
             extended=True
         )
     
@@ -64,6 +66,9 @@ class Sidebar(UserControl):
                     width=220
                 ),
                 self.nav_items,
-            ], expand=True),
+            ], tight=True),
+            padding=padding.all(15),
+            margin=margin.all(0),
+            width=250,
         )
         return self.view
