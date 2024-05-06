@@ -10,7 +10,8 @@ from flet import (
     icons,
     VerticalDivider
 )
-from sidebar import Sidebar
+# from sidebar import Sidebar
+from sidebarV2 import SidebarV2
 
 class AppLayout(Row):
     """
@@ -26,7 +27,8 @@ class AppLayout(Row):
         super().__init__(*args, **kwargs)
         self.app = app
         self.page = page
-        self.sidebar = Sidebar(self, page)
+        # self.sidebar = Sidebar(self, page)
+        self.sidebar = SidebarV2(self, page)
         self._active_view: Control = Column(
             controls=[
                 Text("Active View")

@@ -34,9 +34,11 @@ class SidebarV2(UserControl):
             label_type=NavigationRailLabelType.ALL,
             min_width=100,
             min_extended_width=400,
-            leading=FloatingActionButton(icon=icons.HOME, text="Home"),
             group_alignment=-0.9,
             destinations=[
+                NavigationRailDestination(
+                    icon_content=FloatingActionButton(icon=icons.HOME, text="Home")
+                ),
                 NavigationRailDestination(
                     icon_content=self.ContainedIcon(
                         icons.PEOPLE_ALT_OUTLINED,
@@ -86,7 +88,7 @@ class SidebarV2(UserControl):
     
     def Highlight(self, e):
         pass
-    def ContainedIcon(self, icon_name: str, text: str, action: Any | None = None):
+    def ContainedIcon(self, icon_name: str, text: str | None = None, action: Any | None = None):
         return Container(
             width=250,
             height=75,
@@ -111,7 +113,7 @@ class SidebarV2(UserControl):
                                             on_click=action,
                                         ),
                                     ],
-                                    alignment=alignment.center
+                                    alignment=alignment.top_right
                                 ),
                                 Row(
                                     controls=[
@@ -125,10 +127,11 @@ class SidebarV2(UserControl):
                                     ]  
                                 ),
                             ],
-                            spacing=1,
-                            alignment=alignment.center
+                            spacing=0.7,
+                            alignment=alignment.top_left
                         )
-                    ]
+                    ],
+                    alignment=MainAxisAlignment.CENTER
                 ),
         )
     
@@ -144,13 +147,13 @@ class SidebarV2(UserControl):
                     border_radius=border_radius.all(30),
                     height=1,
                     alignment=alignment.center_right,
-                    width=200
+                    width=150
                 ),
                 self.nav_items,
             ], tight=True),
             padding=padding.all(14),
             margin=margin.all(0),
-            width=200,
+            width=150,
             expand=True
         )
         return self.view
