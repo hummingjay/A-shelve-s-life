@@ -57,7 +57,7 @@ class Shelf_life(UserControl):
 
 
 def main(page: Page):
-    page.title = "A Shelve's Life"
+    page.title = "Effimate"
     page.padding = 0
     # page.bgcolor = colors.BLUE_GREY_200
     app = Shelf_life(page)
