@@ -51,12 +51,6 @@ class Sidebar(UserControl):
                     icon=icons.LIBRARY_BOOKS_OUTLINED,
                     selected_icon_content=Icon(icons.LIBRARY_BOOKS_ROUNDED),
                     label_content=Text("Circulation"),
-                ),
-                NavigationRailDestination(
-                    icon_content=self.ContainedIcon(
-                        icons.PIE_CHART_OUTLINE,
-                        "Work plan",
-                    )
                 )
             ],
             on_change=lambda e: print("Selected destination:", e.control.selected_index),
@@ -65,38 +59,6 @@ class Sidebar(UserControl):
             height = 700
         )
     
-    def Highlight(self, e):
-        pass
-    def ContainedIcon(self, icon_name: str, text: str, action: Any | None = None):
-        return Container(
-            width=200,
-            height=45,
-            border_radius=10,
-            on_hover=lambda e:self.Highlight(e),
-            content=Row(
-                    controls=[
-                        IconButton(
-                            icon=icon_name,
-                            icon_size=21,
-                            icon_color=Theme,
-                            style=ButtonStyle(
-                                shape={
-                                    "": RoundedRectangleBorder(radius=10),
-                                },
-                                overlay_color={"": "transparent"},
-                            ),
-                            on_click=action,
-                        ),
-                        Text(
-                            value=text,
-                            color=Theme,
-                            size=11,
-                            opacity=1,
-                            animate_opacity=200,
-                        ),
-                    ]
-                ),
-        )
     
     def build(self):
         self.view = Container(
