@@ -16,8 +16,13 @@ from flet import(
     alignment,
     padding,
     margin,
-    MainAxisAlignment
+    MainAxisAlignment,
+    IconButton,
+    Theme,
+    ButtonStyle,
+    RoundedRectangleBorder
 )
+from typing import Any
 
 class Sidebar(UserControl):
     def __init__(self, app_layout, page):
@@ -47,11 +52,50 @@ class Sidebar(UserControl):
                     selected_icon_content=Icon(icons.LIBRARY_BOOKS_ROUNDED),
                     label_content=Text("Circulation"),
                 ),
+                NavigationRailDestination(
+                    icon_content=self.ContainedIcon(
+                        icons.PIE_CHART_OUTLINE,
+                        "Work plan",
+                    )
+                )
             ],
             on_change=lambda e: print("Selected destination:", e.control.selected_index),
             # expand=True,
             extended=True,
             height = 700
+        )
+    
+    def Highlight(self, e):
+        pass
+    def ContainedIcon(self, icon_name: str, text: str, action: Any | None = None):
+        return Container(
+            width=200,
+            height=45,
+            border_radius=10,
+            on_hover=lambda e:self.Highlight(e),
+            content=Row(
+                    controls=[
+                        IconButton(
+                            icon=icon_name,
+                            icon_size=21,
+                            icon_color=Theme,
+                            style=ButtonStyle(
+                                shape={
+                                    "": RoundedRectangleBorder(radius=10),
+                                },
+                                overlay_color={"": "transparent"},
+                            ),
+                            on_click=action,
+                        ),
+                        Text(
+                            value=text,
+                            color=Theme,
+                            size=11,
+                            opacity=1,
+                            animate_opacity=200,
+                        ),
+                    ]
+                ),
         )
     
     def build(self):
@@ -70,8 +114,9 @@ class Sidebar(UserControl):
                 ),
                 self.nav_items,
             ], tight=True),
-            padding=padding.all(14),
+            padding=padding.all(7),
             margin=margin.all(0),
-            width=200
+            width=200,
+            expand=True
         )
         return self.view
