@@ -18,7 +18,6 @@ from flet import(
     margin,
     MainAxisAlignment
 )
-from typing import Any
 
 class Sidebar(UserControl):
     def __init__(self, app_layout, page):
