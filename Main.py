@@ -7,7 +7,7 @@ from flet import (
     Container,
     Row,
     icons,
-    Icon,
+    IconButton,
     margin, 
     Text,
     AppBar,
@@ -26,7 +26,7 @@ class Shelf_life(UserControl):
             PopupMenuItem(icon=icons.SETTINGS_OUTLINED, text="Settings")
         ]
         self.appbar = AppBar(
-            leading=Icon(icons.HOME),
+            leading=IconButton(icons.MENU),
             leading_width=100,
             title=Text("A Shelf's Life"),
             center_title=False,

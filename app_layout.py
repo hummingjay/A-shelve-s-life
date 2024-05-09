@@ -29,7 +29,7 @@ class AppLayout(Row):
         self.sidebar = Sidebar(self, page)
         self._active_view: Control = Column(
             controls=[
-                Text("Active View")
+                # Text("Active View")
             ],
             alignment="center",
             horizontal_alignment="center",

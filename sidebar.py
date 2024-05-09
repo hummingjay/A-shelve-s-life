@@ -18,6 +18,7 @@ from flet import(
     margin,
     MainAxisAlignment
 )
+from app_logic import Page_change
 
 class Sidebar(UserControl):
     def __init__(self, app_layout, page):
@@ -28,8 +29,8 @@ class Sidebar(UserControl):
             selected_index=0,
             label_type=NavigationRailLabelType.ALL,
             min_width=100,
-            min_extended_width=400,
-            leading=FloatingActionButton(icon=icons.HOME, text="Home"),
+            # min_extended_width=400,
+            leading=FloatingActionButton(icon=icons.DASHBOARD, text="Dashboard"),
             group_alignment=-0.9,
             destinations=[
                 NavigationRailDestination(
@@ -48,7 +49,7 @@ class Sidebar(UserControl):
                     label_content=Text("Circulation"),
                 )
             ],
-            on_change=lambda e: print("Selected destination:", e.control.selected_index),
+            on_change=lambda e: Page_change(e.control.selected_index),
             # expand=True,
             extended=True,
             height = 700
