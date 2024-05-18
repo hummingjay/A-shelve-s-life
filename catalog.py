@@ -1,1 +1,2 @@
-print("catalog")
+class Catalog:
+    pass

@@ -1,1 +1,2 @@
-print("circulation")
+class Circulation:
+    pass

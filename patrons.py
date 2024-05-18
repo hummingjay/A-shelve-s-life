@@ -1,1 +1,2 @@
-print("Patrons")
+class Patrons:
+    pass

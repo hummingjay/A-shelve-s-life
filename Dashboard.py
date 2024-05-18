@@ -1,1 +1,2 @@
-print("Dashboard")
+class Dashboard:
+    pass
