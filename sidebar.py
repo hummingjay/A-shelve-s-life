@@ -49,13 +49,40 @@ class Sidebar(UserControl):
                     label_content=Text("Circulation"),
                 )
             ],
-            on_change=lambda e: Page_change(e.control.selected_index),
+            on_change=lambda e: self.change_page(page, e),
             # expand=True,
             extended=True,
             height = 700
         )
     
-    
+    def change_page(self, page, e = None):
+        print("Route:", page.route)
+        
+        if e is None:
+            page.go("/")
+            page.update()
+        
+        try:
+            selected_index = e.control.selected_index
+            print("Selected index:", selected_index)
+        except AttributeError:
+            raise AttributeError("The event doesn't have a control with selected index")
+        
+        if e.control.selected_index == 0:
+            page.go("/Patrons")
+            page.update()
+        elif e.control.selected_index == 1:
+            page.go("/Catalog")
+            page.update()
+        elif e.control.selected_index == 2:
+            page.go("/circulation")
+            page.update()
+        else:
+            print("Invalid slected index:", selected_index)
+            page.go("/")
+            page.update()
+        page.update()
+
     def build(self):
         self.view = Container(
             content=Column([
