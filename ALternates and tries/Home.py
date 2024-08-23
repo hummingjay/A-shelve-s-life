@@ -5,7 +5,7 @@ from flet import (
     Text
 )
 from flet_route import Params, Basket
-from navigation import bar_item
+# from navigation import bar_item
 
 class Home(UserControl):
     def __init__(self):
@@ -15,6 +15,6 @@ class Home(UserControl):
         return View(
             controls=[
                 Text("home", size=30, weight="bold"),
-                bar_item(page)
+                # bar_item(page)
             ]
         )

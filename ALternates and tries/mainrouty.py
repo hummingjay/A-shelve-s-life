@@ -8,6 +8,7 @@ from flet import (
 from flet_route import Routing, path
 from Home import Home
 from About import About
+from navigation import bar_item
 
 def main(page:Page):
     page.window_width = 400
@@ -31,7 +32,8 @@ def main(page:Page):
     ]
     Routing(
         page=page,
-        app_routes=app_routes
+        app_routes=app_routes,
+        appbar=bar_item(page)
     )
     page.go(page.route)
 
