@@ -4,13 +4,12 @@ from flet import (
     Text,
     UserControl
 )
-from flet_route import Params, Basket
 
 class Circulation(UserControl):
     def __init__(self):
         super().__init__()
     
-    def my_dash(self, page:Page, params:Params, basket:Basket):
+    def my_dash(self):
         return View(
             controls=[
                 Text("The Circulation", weight="bold")

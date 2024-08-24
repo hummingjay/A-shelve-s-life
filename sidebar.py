@@ -18,7 +18,6 @@ from flet import(
     margin,
     MainAxisAlignment
 )
-from app_logic import Page_change
 
 class Sidebar(UserControl):
     def __init__(self, app_layout, page):
@@ -54,7 +53,8 @@ class Sidebar(UserControl):
             extended=True,
             height = 700
         )
-    
+
+    '''
     def change_page(self, page, e = None):
         print("Route:", page.route)
         
@@ -82,6 +82,7 @@ class Sidebar(UserControl):
             page.go("/")
             page.update()
         page.update()
+    '''
 
     def build(self):
         self.view = Container(

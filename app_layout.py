@@ -16,7 +16,6 @@ from Dashboard import Dashboard
 from circulation import Circulation
 from catalog import Catalog
 from patrons import Patrons
-from app_logic import Page_change
 
 class AppLayout(Row):
     """
@@ -37,9 +36,7 @@ class AppLayout(Row):
         
         self._active_view: Control = Column(
             controls=[
-                Page_change(self.sidebar.nav_items.on_change),
-                # self.update()
-                # self.sidebar.nav_items.on_change
+                Text("Active View")
             ],
             alignment="center",
             horizontal_alignment="center",
