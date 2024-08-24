@@ -10,13 +10,13 @@ from flet import (
     icons,
     VerticalDivider,
 )
-from flet_route import Routing, path
+
 from sidebar import Sidebar
 from Dashboard import Dashboard
 from circulation import Circulation
 from catalog import Catalog
 from patrons import Patrons
-# from app_logic import Page_change
+from app_logic import Page_change
 
 class AppLayout(Row):
     """
@@ -33,20 +33,8 @@ class AppLayout(Row):
         self.app = app
         self.page = page
         self.sidebar = Sidebar(self, page)
-        self.current_view = pages
         
-        pages = [
-            path(url ="/", clear=True, view=Dashboard),
-            path(url="/Patrons", clear=True, view=Patrons),
-            path(url="/Catalog", clear=True, view=Catalog),
-            path(url="/circulation", clear = True, view = Circulation)
-        ]
         
-        Routing(page=page,
-                app_routes=pages)
-        page.go(page.route)
-        
-        '''
         self._active_view: Control = Column(
             controls=[
                 Page_change(self.sidebar.nav_items.on_change),
@@ -57,13 +45,12 @@ class AppLayout(Row):
             horizontal_alignment="center",
             expand=True
         )
-        '''
+        
         
         self.controls = [
             self.sidebar,
             VerticalDivider(width=1),
-            # self.active_view
-            self.current_view
+            self.active_view
         ]
     
     @property
