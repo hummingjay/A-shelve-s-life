@@ -48,7 +48,7 @@ class Sidebar(UserControl):
                     label_content=Text("Circulation"),
                 )
             ],
-            on_change=lambda e: self.change_page(page, e),
+            # on_change=lambda e: self.change_page(page, e),
             # expand=True,
             extended=True,
             height = 700

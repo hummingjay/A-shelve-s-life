@@ -33,6 +33,12 @@ class AppLayout(Row):
         self.page = page
         self.sidebar = Sidebar(self, page)
         
+        # page views
+        self.Dashboard = Dashboard
+        self.circulation = Circulation
+        self.catalog = Catalog
+        self.patrons = Patrons
+        
         
         self._active_view: Control = Column(
             controls=[

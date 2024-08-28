@@ -13,6 +13,9 @@ from flet import (
     AppBar,
     PopupMenuButton,
     PopupMenuItem,
+    View,
+    padding,
+    TemplateRoute
 )
 from app_layout import AppLayout
 
@@ -20,6 +23,7 @@ class Shelf_life(UserControl):
     def __init__(self, page: Page):
         super().__init__()
         self.page = page
+        self.page.on_route_change = self.self.route_change # routing changing pages
         self.appbar_items = [
             PopupMenuItem(icon=icons.PERSON_OUTLINED, text="Login"),
             PopupMenuItem(), # a divider
@@ -53,7 +57,33 @@ class Shelf_life(UserControl):
             # vertical_alignment= "start",
         )
         return self.layout
-
+    
+    # initialize how the layout by default will be
+    def initialize(self):
+        self.page.views.append(
+            View(
+                "/",
+                # The appbar and what was returned from Build
+                [self.appbar, self.layout],
+                padding=padding.all(0),
+            )
+        )
+        self.page.update()
+        # maybe make a deafult thing to appear if you so wish
+        self.page.go("/")
+    
+    # routing of pages like url style
+    def route_change(self, e):
+        troute = TemplateRoute(self.page.route)
+        if troute.match("/"):
+            self.page.go("/dashbord")
+        elif troute.match("/patrons"):
+            pass
+            # self.layout.patron_view()
+        elif troute.match("/catalog"):
+            pass
+        elif troute.match("/ciculation"):
+            pass
 
 
 def main(page: Page):

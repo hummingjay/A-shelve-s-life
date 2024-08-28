@@ -10,8 +10,4 @@ class Patrons(UserControl):
         super().__init__()
     
     def my_dash(self):
-        return View(
-            controls=[
-                Text("Our Patrons", weight="bold")
-            ]
-        )
+        return Text("Our Patrons", weight="bold")

@@ -10,8 +10,4 @@ class Circulation(UserControl):
         super().__init__()
     
     def my_dash(self):
-        return View(
-            controls=[
-                Text("The Circulation", weight="bold")
-            ]
-        )
+        return Text("The Circulation", weight="bold")

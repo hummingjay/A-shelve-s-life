@@ -10,8 +10,4 @@ class Catalog(UserControl):
         super().__init__()
     
     def my_dash(self):
-        return View(
-            controls=[
-                Text("Our Catalog", weight="bold")
-            ]
-        )
+        return Text("Our Catalog", weight="bold")
