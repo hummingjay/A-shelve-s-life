@@ -64,4 +64,7 @@ class AppLayout(Row):
     def active_view(self, view):
         self._active_view = view
         self.update()
+    
+    def set_page_view(self, i):
+        self.active_view = 
 
